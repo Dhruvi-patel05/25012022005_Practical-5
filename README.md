@@ -1,181 +1,108 @@
-# Practical 7: JSON API Data Fetching and SQLite Database in Android
+# Practical 5: Login and Registration Screens using Jetpack Compose
 
 ## 📌 Aim
 
-Develop an Android application that retrieves Person data in JSON format from an Internet API and stores the retrieved data in an SQLite database.
+To develop an Android application containing Login and Registration screens using Kotlin and Jetpack Compose.
 
 ## 🎯 Objectives
 
-* Fetch JSON data using `HttpURLConnection`.
-* Parse JSON data using Kotlin.
-* Store fetched data in an SQLite database.
-* Display records using RecyclerView.
-* Perform CRUD operations on SQLite.
-* Pass Person objects between Activities using Serializable.
-* Display Person details and location information.
+* Design a Login screen using Jetpack Compose.
+* Design a Registration screen with input fields.
+* Use Material 3 components.
+* Implement navigation between Login and Registration screens.
+* Perform basic form validation.
+* Create reusable UI components.
 
 ## 🛠 Technologies Used
 
 * Kotlin
 * Android Studio
-* RecyclerView
-* SQLite Database
-* HttpURLConnection
-* Kotlin Coroutines (`CoroutineScope`)
-* View Binding
-* JSON Parsing
-* Serializable Interface
+* Jetpack Compose
+* Material 3
+* Navigation Compose
+* Android Toast
+* State Management
 
 ## 📂 Project Structure
 
 ```text
-app/
+25012022005_Practical_5/
 ├── MainActivity.kt
-├── MapActivity.kt
-├── Person.kt
-├── PersonAdapter.kt
-├── HttpRequest.kt
-├── DatabaseHelper.kt
-├── PersonDbTableData.kt
-├── activity_main.xml
-├── activity_map.xml
-├── person_item.xml
-└── AndroidManifest.xml
+├── AppNavigation.kt
+├── LoginScreen.kt
+├── RegisterScreen.kt
+├── FormField.kt
+├── ui/
+│   └── theme/
+├── res/
+│   └── drawable/
+│       └── guni_pink_logo.png
+└── README.md
 ```
 
 ## ✨ Features
 
-### 1. JSON Data Fetching
+### 1. Login Screen
 
-* Retrieves Person data from a REST API.
-* Uses `HttpURLConnection` for network communication.
-* Executes network operations in the background using Kotlin Coroutines.
+* GUNI pink logo
+* Email input field
+* Password input field
+* Login button
+* Forgot Password option
+* Navigation to Registration screen
 
-### 2. SQLite Database
+### 2. Registration Screen
 
-* Insert Person records.
-* Retrieve stored records.
-* Update existing records.
-* Delete records from the database.
+* Name input field
+* Phone number input field
+* City input field
+* Email input field
+* Password and Confirm Password fields
+* Register button
+* Basic form validation
+* Navigation back to Login screen
 
-### 3. RecyclerView
+### 3. Reusable Form Fields
 
-Displays Person records, including:
+The `FormField.kt` file provides reusable input fields for email, password, name, phone number, and other details.
 
-* Name
-* Email
-* Phone number
-* Address
+### 4. Navigation
 
-### 4. Map Activity
-
-Passes Person objects using Serializable and displays:
-
-* Name
-* Address
-* Latitude
-* Longitude
-
-## 👤 Person Model
-
-```kotlin
-class Person(
-    var id: String,
-    var name: String,
-    var emailId: String,
-    var phoneNo: String,
-    var address: String,
-    var latitude: Double,
-    var longitude: Double
-) : java.io.Serializable
-```
-
-## 🗄 SQLite Table Structure
-
-| Column Name       | Data Type |
-| ----------------- | --------- |
-| `id`              | TEXT      |
-| `person_name`     | TEXT      |
-| `person_email_id` | TEXT      |
-| `person_phone_no` | TEXT      |
-| `person_address`  | TEXT      |
-| `person_lat`      | REAL      |
-| `person_long`     | REAL      |
-
-## 🌐 Sample JSON API Response
-
-```json
-{
-  "id": "123",
-  "email": "user@gmail.com",
-  "phone": "+919876543210",
-  "profile": {
-    "name": "Dhruvi Patel",
-    "address": "Ahmedabad, Gujarat",
-    "location": {
-      "lat": 23.0225,
-      "long": 72.5714
-    }
-  }
-}
-```
+The `AppNavigation.kt` file uses Navigation Compose to navigate between Login and Registration screens.
 
 ## 🔄 Application Workflow
 
 ```text
-JSON API
-   ↓
-HttpURLConnection
-   ↓
-CoroutineScope
-   ↓
-JSON Parsing
-   ↓
-Person Object
-   ↓
-SQLite Database
-   ↓
-RecyclerView
-   ↓
-Map Activity
+       Start Application
+              ↓
+         Login Screen
+          ↙       ↘
+ Register Screen   Login Button
+       ↓
+ Enter Details
+       ↓
+ Validate Input
+       ↓
+ Display Message
+       ↓
+ Return to Login
 ```
-
-## 📱 Screenshots
-
-### Main Screen
-
-Displays Person records in a RecyclerView.
-
-### Map Screen
-
-Displays Person details, address, latitude, and longitude.
-
-## 📖 Learning Outcomes
-
-* Parse JSON data in Android applications.
-* Connect Android apps with REST APIs.
-* Use HttpURLConnection for network communication.
-* Work with Kotlin Coroutines.
-* Implement SQLite CRUD operations.
-* Display data using RecyclerView.
-* Transfer objects between Activities using Serializable.
-* Develop database-driven Android applications.
 
 ## 🚀 How to Run
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Dhruvi-patel05/25012022005_Practical-7.git
+   git clone https://github.com/Dhruvi-patel05/25012022005_Practical-5.git
    ```
 
 2. Open the project in Android Studio.
 
 3. Sync the Gradle files.
 
-4. Connect an Android device or start an emulator.
+4. Ensure `guni_pink_logo.png` is in the drawable folder.
 
-5. Run the application.
+5. Run the application on an emulator or Android device.
 
 ## 👨‍💻 Author
 
@@ -184,4 +111,10 @@ B.Tech Information Technology
 
 ## 🔗 GitHub Repository
 
-[**View Practical 7 on GitHub**](https://github.com/Dhruvi-patel05/25012022005_Practical-7)
+[View Practical 5 on GitHub](https://github.com/Dhruvi-patel05/25012022005_Practical-5)
+
+## 📝 Conclusion
+
+This practical demonstrates the development of Login and Registration screens using Jetpack Compose. It covers UI design, reusable composables, navigation, state management, and basic form validation.
+
+**Note:** The Login and Registration screens currently demonstrate UI and basic validation. Real authentication and database integration require additional implementation.
